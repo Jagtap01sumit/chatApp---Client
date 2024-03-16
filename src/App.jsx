@@ -8,6 +8,7 @@ import { Toaster } from "react-hot-toast";
 import { useAuthContext } from "./context/AuthContext";
 
 function App() {
+  <meta property="og:image" content="/social-card.png" />;
   const { authUser } = useAuthContext();
   return (
     <div className="p-4 h-screen flex justify-center items-center">

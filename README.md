@@ -10,3 +10,20 @@ Currently, two official plugins are available:
 
 /* eslint-disable no-unused-vars */
 
+
+
+
+
+
+
+
+
+### Zustand
+
+# install : npm install zustand
+
+
+
+### Socket.io setup client
+
+ npm i socket.io-client
