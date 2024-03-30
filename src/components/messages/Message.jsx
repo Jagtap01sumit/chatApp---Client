@@ -22,6 +22,8 @@ export default function Message({ message }) {
     message.newMessage?.createdAt || message.createdAt
   );
 
+  const shakeClass = message.shouldShake ? "shake" : "";
+
   return (
     <div className={`chat ${chatClassName}`}>
       <div className="chat-image avatar">
@@ -29,7 +31,9 @@ export default function Message({ message }) {
           <img alt="Profile" src={profilePic} />
         </div>
       </div>
-      <div className={`chat-bubble text-white ${bubbleColor} pb-2`}>
+      <div
+        className={`chat-bubble ${shakeClass} text-white ${bubbleColor} pb-2`}
+      >
         {message.message || message.newMessage?.message}
       </div>
       <div className="chat-footer opacity-50 text-xs flex gap-1 items-center">

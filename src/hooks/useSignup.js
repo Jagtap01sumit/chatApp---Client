@@ -25,6 +25,7 @@ function useSignup() {
       const res = await fetch("http://localhost:5000/api/auth/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
+        credentials: "include",
         body: JSON.stringify({
           fullName,
           username,
@@ -39,8 +40,12 @@ function useSignup() {
         toast.error(data.error);
       } else {
         toast.success(data.success);
+
         localStorage.setItem("chat-user", JSON.stringify(data));
+        console.log("bhai tu save kyu nhi hota!!!!!!!!!!!!!!!!!!!!!!!!!!! ");
         setAuthUser(data);
+
+        console.log(authUser, "authUser");
       }
     } catch (error) {
       toast.error(error);

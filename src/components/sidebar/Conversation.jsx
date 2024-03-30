@@ -1,13 +1,17 @@
 // eslint-disable no-unused-vars;
 import React from "react";
 import useConversation from "../../zustand/useconversation.js";
+import { useSocketContext } from "../../context/SocketContext.jsx";
 
 export default function Conversation({ conversation, lastIdx }) {
   console.log(conversation, "convooooo");
   const { selectedConversation, setSelectedConversation } = useConversation();
   const isSelected = selectedConversation?._id === conversation?._id;
   console.log(selectedConversation);
-
+  const { onlineUsers } = useSocketContext();
+  const isOnline = onlineUsers.includes(conversation._id);
+  console.log(isOnline, "online");
+  console.log(onlineUsers);
   return (
     <>
       <div
@@ -16,7 +20,7 @@ export default function Conversation({ conversation, lastIdx }) {
         } p-2 py-1 cursor-pointer`}
         onClick={() => setSelectedConversation(conversation)}
       >
-        <div className="avatar online">
+        <div className={`avatar  ${isOnline ? "online" : ""}`}>
           <div className="w-12 rounded-full">
             <img
               src={conversation?.profilePic}

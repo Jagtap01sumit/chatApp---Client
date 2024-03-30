@@ -10,12 +10,9 @@ function useGetMessage() {
     const getMessages = async () => {
       setLoading(true);
       try {
-        const res = await fetch(
-          `http://localhost:5000/api/messages/${selectedConversation._id}`,
-          {
-            credentials: "include",
-          }
-        );
+        const res = await fetch(`http://localhost:5000/api/messages/${selectedConversation._id}`, {
+          credentials: "include",
+        });
         const data = await res.json();
         console.log(res);
         console.log(data, "data");
